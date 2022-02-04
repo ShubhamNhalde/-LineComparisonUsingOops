@@ -1,65 +1,85 @@
 package com.bridgelabz.linecomparison;
 
+import java.util.Scanner;  
+
 public class LineComparisonUsingOops {
 	
-	public double coordinatesForLine1() {
-		double x1= 12d;
-		double y1= 10d;
-		double x2= 8d;
-		double y2= 5d;
-		double lengthOfLine1 = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
-		System.out.println("Length of line 1 : "+lengthOfLine1);
-		return lengthOfLine1;
-
-	}
-
-	public double coordinatesForLine2() {
-		double x1= 11d;
-		double y1= 13d;
-		double x2= 7d;
-		double y2= 9d;
-		double lengthOfLine2 = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
-		System.out.println("Length of line 2 : "+lengthOfLine2);
-		return lengthOfLine2;
-	}
-
-
-	public void equalityOfLength() {
-		double line1 = coordinatesForLine1();
-		String s1 = Double.toString(line1);
-		double line2 = coordinatesForLine2();
-		String s2 = Double.toString(line2);
-		if (s1.equals(s2))
-			System.out.println("Both lines are same in length");
-		else
-			System.out.println("Both the lines are different in length");
-	}
+    public static Scanner sc =new Scanner(System.in);
+    public static double x1,y1;
+    public static double x2,y2;
+    public static double a1,b1;
+    public static double a2,b2;
 
 
 
-	public void compareLength() {
-		double line1 = coordinatesForLine1();
-		String s1 = Double.toString(line1);
-		double line2 = coordinatesForLine2();
-		String s2 = Double.toString(line2);
-		if (s1.compareTo(s2) < 0) {
-			System.out.println(s1 + " is less than the" + s2);
-			System.out.println("line 2 is greater");
-		} else {
-			System.out.println(s1 + " is greater than the " + s2);
-			System.out.println("line 1 is greater");
-		}
-	}
+    public void lengthOfLine() {
+        System.out.println("The coordinates are:");
+        System.out.print("x1 = ");x1=sc.nextInt();
+        System.out.print("y1 = ");y1=sc.nextInt();
+        System.out.print("x2 = ");x2=sc.nextInt();
+        System.out.print("y2 = ");y2=sc.nextInt();
+
+        double length = Math.sqrt(Math.pow(x2-x1, 2)+Math.pow(y2-y1, 2));
+        System.out.println("The length of the line is = "+length);
+
+    }
+
+    public static void points() {
+        System.out.println("The coordinates of 1st line are:");
+        System.out.print("x1 = ");x1=sc.nextInt();
+        System.out.print("y1 = ");y1=sc.nextInt();
+        System.out.print("x2 = ");x2=sc.nextInt();
+        System.out.print("y2 = ");y2=sc.nextInt();
 
 
+        System.out.println("The coordinates of 2nd line are:");
+        System.out.print("a1 = ");a1=sc.nextInt();
+        System.out.print("b1 = ");b1=sc.nextInt();
+        System.out.print("a2 = ");a2=sc.nextInt();
+        System.out.print("b2 = ");b2=sc.nextInt();
 
-	public static void main(String[] args) {
-		System.out.println("Welcome to Line Comparison Computation Program");
-		LineComparisonUsingOops length = new LineComparisonUsingOops();
-		length.coordinatesForLine1();	
-		length.coordinatesForLine2();
-		length.equalityOfLength();
-		length.compareLength();
+    }
+
+    public void equality() {
+
+        Double length1 = Math.sqrt(Math.pow(x2-x1, 2)+Math.pow(y2-y1, 2));
+        System.out.println("The length of the 1st line is = "+length1);
+
+        Double length2 = Math.sqrt(Math.pow(a2-a1, 2)+Math.pow(b2-b1, 2));
+        System.out.println("The length of the 2nd line is = "+length2);
+
+        if(length1.equals(length2))
+            System.out.println("The lines are equal");
+        else
+            System.out.println("The lines are not equal");
+    }
+
+    public void comparison() {
+
+        Double length1 = Math.sqrt(Math.pow(x2-x1, 2)+Math.pow(y2-y1, 2));
+        System.out.println("The length of the 1st line is = "+length1);
+
+        Double length2 = Math.sqrt(Math.pow(a2-a1, 2)+Math.pow(b2-b1, 2));
+        System.out.println("The length of the 2nd line is = "+length2);
+
+        double res = length1.compareTo(length2);
+
+        if(res>0) {
+            System.out.println("The line1 is longer than line2");
+        }else if(res<0) {
+            System.out.println("The line2 is longer than line1");
+        }else
+            System.out.println("Both lines equal");
+    }
+    
+    public static void main(String[] args) {
+		
+    	System.out.println("Welcome To Line Comparison Computation Program");
+    	LineComparisonUsingOops length = new LineComparisonUsingOops();
+    	length.lengthOfLine();
+    	length.points();
+    	length.equality();
+    	length.comparison();
 	}
 
 }
